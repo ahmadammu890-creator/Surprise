@@ -1,3 +1,22 @@
+// Background Audio Element
+const bgMusic = document.getElementById('bgMusic');
+
+// Screen par touch/click hote hi khas time se gaana start hoga
+function playAudio() {
+    // ⬇️ Yahan seconds set karein (e.g., 30 = 30 seconds se, 60 = 1 minute se)
+    bgMusic.currentTime = 96.5; 
+
+    bgMusic.play().then(() => {
+        console.log("Music started from specified time!");
+    }).catch(error => {
+        console.log("Autoplay waiting for user interaction:", error);
+    });
+}
+
+// Global click/touch event for immediate music start
+document.addEventListener('click', playAudio, { once: true });
+document.addEventListener('touchstart', playAudio, { once: true });
+
 // Function to trigger confetti blast
 function triggerConfetti() {
     confetti({
